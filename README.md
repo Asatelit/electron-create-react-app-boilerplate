@@ -1,68 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Boilerplate: Electron + Create React App + Electron Builder
 
-## Available Scripts
+A boilerplate to build an Electron app using Create React App and Electron Builder.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+### Directory Layout
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+.
+├── /build/                         # The folder for compiled output
+├── /node_modules/                  # 3rd-party libraries and utilities
+├── /src/                           # The source code of the application
+│   ├── /index.js                   # Startup script
+│   └── /registerServiceWorker.js   # Lets the app load faster on subsequent visits in production
+├── /public/                        # Static files which are copied into the /build/ folder
+└── package.json                    # The list of 3rd party libraries and utilities
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### How to Install
 
-### `npm test`
+```shell
+$ yarn install
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This will install both run-time project dependencies and developer tools listed in package.json file.
 
-### `npm run build`
+### How to Start
 
-Builds the app for production to the `build` folder.<br>
+```shell
+$ yarn electron-dev
+```
+
+This command will build the app from the source files (`/src`) into the output `/build` folder.
+As soon as the initial build completes, it will start a light-weight developer server.
+
+Now you can open your web app in a browser and start hacking.
+Whenever you modify any of the source files inside the /src folder, the module bundler (Webpack)
+will recompile the app on the fly and refresh all the connected browsers.
+
+Note that the npm start command launches the app in development mode, the compiled output files are not optimized
+and minimized in this case. For more information, check out the additional documentation.
+
+### How to Package
+
+Run this command to package the app:
+
+```shell
+$ yarn electron-pack
+```
+
+This command builds the app for production to the dist folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The build is minified and the filenames include the hashes.
+By default, it also includes a service worker so that your app loads from local cache on future visits.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Additional Scripts
 
-### `npm run eject`
+* `"postinstall": "electron-builder install-app-deps"` - will ensure that your native dependencies always match the electron version.
+* `"preelectron-pack": "yarn build"` - will build the CRA.
+* `"electron-pack": "electron-builder -w"` - is used to build Electron app for Windows. See more information [here](https://www.electron.build/multi-platform-build).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### References
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Included dependencies:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* [electron](https://electronjs.org) - build cross platform desktop apps with JavaScript, HTML, and CSS.
+* [electron-builder](https://github.com/electron-userland/electron-builder) - build a ready for distribution Electron app with “auto update” support out of the box.
+* [react](https://github.com/facebook/react) - library for building user interfaces.
+* [rescripts](https://github.com/harrysolovay/rescripts) - take control of your create-react-app project configurations.
+* [react-scripts](https://github.com/facebook/create-react-app) - create React apps with no build configuration.
+* [react](https://github.com/facebook/react) - library for building user interfaces.

@@ -1,17 +1,44 @@
 {
-  "name": "electron-cra-ts",
+  "name": "electron-create-react-app-boilerplate",
+  "description": "Boilerplate: Electron + Create React App + Electron Builder",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
+  "main": "public/electron.js",
+  "author": {
+    "name": "Asatelit",
+    "email": "mailbox@asatelit.com",
+    "url": "https://asatelit.com"
+  },
+  "build": {
+    "appId": "com.asatelit.electron-cra-ts",
+    "productName": "electron-cra-ts",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
   "dependencies": {
+    "electron-is-dev": "^1.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder -w"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +54,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.11",
+    "@rescripts/rescript-env": "^0.0.10",
+    "concurrently": "^4.1.1",
+    "cross-env": "^5.2.0",
+    "electron": "^6.0.0",
+    "electron-builder": "^21.2.0",
+    "typescript": "^3.5.3",
+    "wait-on": "^3.3.0"
   }
 }
