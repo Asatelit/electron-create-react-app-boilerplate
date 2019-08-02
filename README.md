@@ -11,7 +11,7 @@ A boilerplate to build an Electron app using Create React App and Electron Build
 ├── /build/                         # The folder for compiled output
 ├── /node_modules/                  # 3rd-party libraries and utilities
 ├── /src/                           # The source code of the application
-│   ├── /index.js                   # Startup script
+│   ├── /electron.js                # Startup script
 │   └── /registerServiceWorker.js   # Lets the app load faster on subsequent visits in production
 ├── /public/                        # Static files which are copied into the /build/ folder
 │   ├── /electron.js                # Startup script of your app, which will run the main process with Electron
