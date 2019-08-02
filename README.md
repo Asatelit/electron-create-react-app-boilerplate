@@ -14,6 +14,9 @@ A boilerplate to build an Electron app using Create React App and Electron Build
 │   ├── /index.js                   # Startup script
 │   └── /registerServiceWorker.js   # Lets the app load faster on subsequent visits in production
 ├── /public/                        # Static files which are copied into the /build/ folder
+│   ├── /electron.js                # Startup script of your app, which will run the main process with Electron
+├── .rescriptsrc.js                 # Wrap CRA configs with Rescripts
+├── .webpack.config.js              # Customize webpack configuration created with CRA
 └── package.json                    # The list of 3rd party libraries and utilities
 ```
 

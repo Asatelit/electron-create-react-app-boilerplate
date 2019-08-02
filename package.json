@@ -25,12 +25,6 @@
       "buildResources": "assets"
     }
   },
-  "dependencies": {
-    "electron-is-dev": "^1.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
-  },
   "scripts": {
     "start": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "react-scripts build",
@@ -55,13 +49,32 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "electron-is-dev": "^1.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+  },
   "devDependencies": {
     "@rescripts/cli": "^0.0.11",
     "@rescripts/rescript-env": "^0.0.10",
+    "@types/jest": "24.0.16",
+    "@types/node": "^12.6.9",
+    "@types/react": "16.8.24",
+    "@types/react-dom": "16.8.5",
+    "@types/react-redux": "7.1.1",
+    "@types/react-router-dom": "4.3.4",
+    "@types/webpack-env": "^1.13.9",
     "concurrently": "^4.1.1",
     "cross-env": "^5.2.0",
     "electron": "^6.0.0",
     "electron-builder": "^21.2.0",
+    "prettier": "^1.17.1",
+    "redux-devtools-extension": "^2.13.8",
+    "tslint": "^5.18.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
     "wait-on": "^3.3.0"
   }
