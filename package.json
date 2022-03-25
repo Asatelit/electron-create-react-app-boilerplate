@@ -67,7 +67,7 @@
     "@types/webpack-env": "^1.13.9",
     "concurrently": "^4.1.1",
     "cross-env": "^5.2.0",
-    "electron": "^6.0.0",
+    "electron": "^13.6.6",
     "electron-builder": "^21.2.0",
     "prettier": "^1.17.1",
     "redux-devtools-extension": "^2.13.8",
